@@ -143,7 +143,7 @@ else
         && patch -p1 --forward < "$INSTALL_DIR/deploy/kraube-cc-version-2.1.300.patch") \
         || warn "патч cc-version не применился (версия ушла вперёд?) — проверьте заголовки"
     fi
-    (cd "$KRAUBE_SRC_DIR" && go build -o "$KRAUBE_BIN" .)
+    (cd "$KRAUBE_SRC_DIR" && go build -o "$KRAUBE_BIN" ./cmd/kraube)
     ok "собран и установлен"
   else
     ok "бинарь уже стоит: $KRAUBE_BIN"
